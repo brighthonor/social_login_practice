@@ -6,20 +6,9 @@ const GetTokenButton = (props) => {
 
   const buttonName = props.provider === 'google' ? 'Google Login' : 'Kakao Login';
 
-  const [cookie] = useCookies();
-
-  useEffect(() => {
-    if(cookie.accessToken !== undefined){
-      props.setAt(cookie.accessToken);
-      props.setRt(cookie.refreshToken);
-    }
-  }, [cookie, props]);
-
   return (
     <>
       <a href={link}><button>{buttonName}</button></a>
-      <p>access_token: {props.at}</p>
-      <p>refresh_token: {props.rt}</p>
     </>
   )
 };
