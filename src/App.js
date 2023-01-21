@@ -5,12 +5,13 @@ import TokenText from './components/TokenText';
 import CommonLogin from './components/CommonLogin';
 import './App.css';
 import LogoutButton from './components/LogoutButton';
+import url from './env';
 
 function App() {
   const [at, setAt] = useState(null);
 
   const refresh = () => {
-    fetch('http://localhost:8000/auth/token/refresh/', {
+    fetch(url+'/auth/token/refresh/', {
       /*******************************************
        * credential은 'include'와 'same-site'가 있는데,
        * 보안상 'same-site'를 써야함.

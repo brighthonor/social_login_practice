@@ -1,7 +1,8 @@
 import React from 'react';
+import url from '../env';
 
 const GetTokenButton = (props) => {
-  const link = props.provider === 'google' ? 'http://localhost:8000/auth/rest-auth/google/redirect/' : 'http://localhost:8000/auth/rest-auth/kakao/redirect/';
+  const link = url+ (props.provider === 'google' ? '/auth/rest-auth/google/redirect/' : '/auth/rest-auth/kakao/redirect/');
 
   const buttonName = props.provider === 'google' ? 'Google Login' : 'Kakao Login';
 

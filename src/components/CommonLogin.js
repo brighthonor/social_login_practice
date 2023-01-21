@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import url from '../env';
 
 const CommonLogin = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const login = () => {
-    fetch('http://localhost:8000/auth/login/', {
+    fetch(url+'/auth/login/', {
       method: 'POST',
       body: JSON.stringify({
         email,

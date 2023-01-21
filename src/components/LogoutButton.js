@@ -1,8 +1,9 @@
 import React from 'react';
+import url from '../env';
 
 const LogoutButton = (props) => {
   const logout = () => {
-    fetch('http://localhost:8000/auth/logout/',{
+    fetch(url+'/auth/logout/',{
       method: "POST",
       headers: {'Authorization': 'Bearer '+props.at}
     })
