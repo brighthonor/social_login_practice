@@ -5,6 +5,10 @@ const CommonLogin = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const redirectUrl = (code, callback) => {
+    return url+'/auth/login/redirect/?code='+code+'&callback_url='+callback;
+  };
+
   const login = () => {
     fetch(url+'/auth/login/', {
       method: 'POST',
@@ -12,12 +16,13 @@ const CommonLogin = (props) => {
         email,
         password
       }),
-      headers: { 'Content-Type': 'application/json' }
+      headers: { 'Content-Type': 'application/json' },
     })
     .then(res => res.json())
     .then(res => {
-      props.setAt(res.access_token);
-    })
+      console.log(res);
+      window.location.href=redirectUrl(res.code, 'http://localhost:3000')
+    });
   }
 
   return (
