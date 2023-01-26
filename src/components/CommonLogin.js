@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import url from '../env';
 
 const CommonLogin = (props) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("brighthonor@snu.ac.kr");
+  const [password, setPassword] = useState("cjdeka0211!");
 
   const redirectUrl = (code, callback) => {
     return url+'/auth/login/redirect/?code='+code+'&callback_url='+callback;
@@ -21,7 +21,7 @@ const CommonLogin = (props) => {
     .then(res => res.json())
     .then(res => {
       console.log(res);
-      window.location.href=redirectUrl(res.code, 'http://localhost:3000')
+      window.location.href=redirectUrl(res.code, 'https://localhost.suplix.shop:3000')
     });
   }
 
